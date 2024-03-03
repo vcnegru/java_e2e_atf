@@ -155,4 +155,36 @@
     </plugins>
   </build>
 
+  <profiles>
+    <profile>
+      <id>run-ui-tests</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>3.2.5</version>
+            <configuration>
+              <includes>
+                <include>com.basepaws.atf.ui.cucumber.runner.TestRunner</include>
+              </includes>
+              <argLine>
+                -Datf
+                -Dui=true
+              </argLine>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
+            <configuration>
+              <skipTests>false</skipTests>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
 </project>
