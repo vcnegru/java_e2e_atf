@@ -28,6 +28,7 @@
     <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
     <extention-report.version>1.14.0</extention-report.version>
     <common-codecs.version>1.16.0</common-codecs.version>
+    <project.build.source.encoding>UTF-8</project.build.source.encoding>
   </properties>
 
   <dependencies>
