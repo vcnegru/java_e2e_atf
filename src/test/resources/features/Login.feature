@@ -1,0 +1,16 @@
+Feature: Home Page
+
+#  Background:
+#    Given user accesses BasePaws page
+
+  @Positive
+  Scenario: User accesses BasePaws Home page as guest user
+    When user accesses BasePaws page
+    And Popup 'Exclusive Offer' is displayed
+    And user clicks on 'Close Offer Popup' button
+    And Popup 'Cookies' is displayed
+    And user clicks on 'Accept Cookies' button
+    Then 'Home' page is displayed with following details:
+      | header               | description                                                                |
+      | Your pet's best life | Discover your pet's genetic blueprint with the most comprehensive DNA test |
+    And Header 'Announcement Bar' is displayed

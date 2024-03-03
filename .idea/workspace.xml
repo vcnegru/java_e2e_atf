@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="54300b66-4be4-4504-af19-b6ca52c36b28" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/assertions/CustomAssertions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/CustomExceptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/actions/GenericActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/config/PropertiesKeys.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/config/PropertyReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/config/WebDriverConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/context/DataKeys.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/context/ScenarioContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/hooks/StepHooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/runner/TestRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/BaseSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/LogInStepDefinitions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/extent.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/Login.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/logback-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/properties/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\admin\.m2\repository" />
+        <option name="mavenHome" value="C:/dev/apache-maven-3.9.3" />
+        <option name="userSettingsFile" value="C:\Users\admin\.m2\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2dAgmzL9XHYiVCIuETlFna15rfv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IntellijProjects/work/java_e2e_atf",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IntellijProjects\work\java_e2e_atf" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54300b66-4be4-4504-af19-b6ca52c36b28" name="Changes" comment="" />
+      <created>1709456460319</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709456460319</updated>
+    </task>
+    <servers />
+  </component>
+</project>
