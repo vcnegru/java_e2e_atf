@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import static assertions.CustomAssertions.assertThat;
 import static com.atf.template.ui.cucumber.config.PropertiesKeys.BASE_URL;
@@ -93,10 +94,14 @@ public class LogInStepDefinitions extends BaseSteps {
     public void homePageIsDisplayedWithFollowingDetails(String pageName, Map<String, String> pageDetails) throws IOException {
         HomePage homePage = getFromContext(PAGE);
         for (Map.Entry<String, String> entry : pageDetails.entrySet()) {
-            if ("header".equals(entry.getValue())) {
+//            log.warn("Key: " + entry.getKey().toString());
+//            log.warn("Value: " + entry.getValue().toString());
+            if ("header".equals(entry.getKey())) {
                 homePage.isHomePageHeaderPresent(entry.getValue());
-            } else if ("description".equals(entry.getValue())) {
+            } else if ("description".equals(entry.getKey())) {
                 homePage.isHomePageDescriptionPresent(entry.getValue());
+            } else {
+                throw new NoSuchElementException("Such element is not defined on page: " + entry.getKey());
             }
         }
 

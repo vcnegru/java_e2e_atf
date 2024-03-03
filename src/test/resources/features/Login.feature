@@ -11,6 +11,6 @@ Feature: Home Page
     And Popup 'Cookies' is displayed
     And user clicks on 'Accept Cookies' button
     Then 'Home' page is displayed with following details:
-      | header               | description                                                                |
-      | Your pet's best life | Discover your pet's genetic blueprint with the most comprehensive DNA test |
+      | header      | New beginnings, healthier pets                                                        |
+      | description | Embrace spring with a leap into your pet's DNA. Discover their unique needs and start |
     And Header 'Announcement Bar' is displayed

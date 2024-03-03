@@ -70,7 +70,7 @@ public class HomePage {
     }
     public void isHomePageDescriptionPresent(String text) {
         checkIfPresent(homePageDescription);
-        text.equals(homePageDescription.getText());
+        text.contains(homePageDescription.getText());
     }
     public String getLoginErrorMessage() {
         return loginMessageError.getText();
