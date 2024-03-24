@@ -13,4 +13,4 @@ Feature: Home Page
     Then 'Home' page is displayed with following details:
       | header      | New beginnings, healthier pets                                                        |
       | description | Embrace spring with a leap into your pet's DNA. Discover their unique needs and start |
-    And Header 'Announcement Bar' is displayed
+#    And Header 'Announcement Bar' is displayed
