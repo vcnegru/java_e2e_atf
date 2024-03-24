@@ -26,9 +26,9 @@ public class GenericActions {
     public static Boolean checkIfPresent(WebElement element) {
         try {
             waitFluent().until(ExpectedConditions.visibilityOf(element));
-            log.info("Element {} is present on the page", element.getText());
+            log.info("Element name '{}' is present on the page", element.getText());
         } catch (TimeoutException exception) {
-            log.info("Element is NOT present on the page");
+            log.info("Element is NOT present on the page: {}", element.toString());
             return false;
         }
         return true;
@@ -41,4 +41,5 @@ public class GenericActions {
                 .ignoring(NoSuchElementException.class)
                 .ignoring(StaleElementReferenceException.class);
     }
+
 }

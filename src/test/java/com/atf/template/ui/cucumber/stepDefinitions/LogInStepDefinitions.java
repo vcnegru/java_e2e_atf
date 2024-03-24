@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
@@ -24,14 +25,16 @@ import static org.hamcrest.Matchers.is;
 @Slf4j
 public class LogInStepDefinitions extends BaseSteps {
     @Given("^user accesses BasePaws page$")
-    public void userAccessPortal() {
+    public void userHomePage() {
         driver.get(getProperty(BASE_URL));
         log.info("Customer accesses BasePaws page");
+        HomePage homePage = new HomePage(driver);
+        saveToContext(PAGE, homePage);
     }
 
     @When("^(?:Popup|Header) '(.*)' is displayed$")
     public void validateOfferPopupIsDisplayed(String elementName) {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage =getFromContext(PAGE);
         switch (elementName) {
             case "Exclusive Offer":
                 homePage.popupOfferIsDisplayed();
@@ -43,7 +46,7 @@ public class LogInStepDefinitions extends BaseSteps {
                 homePage.isHeaderAnnouncementBarPresent();
                 break;
             default:
-                throw new IllegalArgumentException("Popup has no locator defined: " + elementName);
+                throw new NoSuchElementException("Popup has no locator defined: " + elementName);
         }
         saveToContext(PAGE, homePage);
     }
@@ -59,7 +62,19 @@ public class LogInStepDefinitions extends BaseSteps {
                 homePage.clickAcceptCookiesButton();
                 break;
             default:
-                throw new IllegalArgumentException("Definition not found for button/element: " + button);
+                throw new NoSuchElementException("Definition not found for button/element: " + button);
+        }
+
+    }
+
+    @Then("^user clicks on '(.*)' header menu$")
+    public void userHoversHeaderMenuItem(String headerMenu) {
+        HomePage homePage = getFromContext(PAGE);
+        try {
+            homePage.checkIfPresentMenuHomePage(headerMenu);
+            homePage.hoverMenuHomePage(headerMenu);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Definition not found for button/element: " + headerMenu);
         }
 
     }
@@ -104,7 +119,34 @@ public class LogInStepDefinitions extends BaseSteps {
                 throw new NoSuchElementException("Such element is not defined on page: " + entry.getKey());
             }
         }
-
     }
+
+//    @And("^{string} page header menu elements are displayed$")
+//    public void pageHeaderMenuElements(String pageName, List<String> menuElements) {
+//        HomePage homePage = getFromContext(PAGE);
+//        for (String menuItem : menuElements) {
+//            homePage.checkIfPresentMenuHomePage(menuItem);
+//        }
+//    }
+
+    @And("{string} page header menu elements are displayed")
+    public void homePageHeaderMenuElementsAreDisplayed(String pageName, List<String> menuElements) {
+        HomePage homePage = getFromContext(PAGE);
+        for (String menuItem : menuElements) {
+            homePage.checkIfPresentMenuHomePage(menuItem);
+        }
+    }
+
+    @Then("^(?:Dog|Cat) products are displayed:$")
+    public void productsAreDisplayed(List<String> dogProducts) {
+        HomePage homePage = getFromContext(PAGE);
+        for (String dogProduct : dogProducts) {
+            homePage.checkProducts(dogProduct);
+        }
+    }
+//
+//    @And("{string} page header menu elements are displayed")
+//    public void homePageHeaderMenuElementsAreDisplayed() {
+//    }
 }
 
