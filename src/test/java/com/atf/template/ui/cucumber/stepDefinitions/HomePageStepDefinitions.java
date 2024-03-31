@@ -21,7 +21,7 @@ import static com.atf.template.ui.cucumber.context.ScenarioContext.saveToContext
 import static org.hamcrest.Matchers.is;
 
 @Slf4j
-public class LogInStepDefinitions extends BaseSteps {
+public class HomePageStepDefinitions extends BaseSteps {
     @Given("^user accesses BasePaws page$")
     public void userHomePage() {
         driver.get(getProperty(BASE_URL));
