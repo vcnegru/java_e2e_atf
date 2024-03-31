@@ -5,12 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54300b66-4be4-4504-af19-b6ca52c36b28" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/BasePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CatProductsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/ProductPageSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/actions/GenericActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/actions/GenericActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/DogProductsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/LogInStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/LogInStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/2_ForCatsPage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/2_ForCatsPage.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/3_ForDogsPage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/3_ForDogsPage.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/properties/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/properties/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -49,19 +69,82 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IntellijProjects/work/java_e2e_atf&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cucumber Java.Feature: HomePage.executor": "Run",
+    "Cucumber Java.Scenario: User accesses BasePaws Home page as guest user.executor": "Run",
+    "JUnit.Run UI Tests.executor": "Run",
+    "Maven.template-atf-ui [clean,verify].executor": "Run",
+    "Maven.template-atf-ui [clean].executor": "Run",
+    "Maven.template-atf-ui [compile].executor": "Run",
+    "Maven.template-atf-ui [verify].executor": "Run",
+    "Maven.template-atf-ui.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IntellijProjects/work/java_e2e_atf",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IntellijProjects\work\java_e2e_atf" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.atf.template.ui.cucumber.pageObjects" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.Run UI Tests">
+    <configuration name="Run UI Tests" type="JUnit" factoryName="JUnit">
+      <module name="template-atf-ui" />
+      <option name="PACKAGE_NAME" value="com.atf.template.ui.cucumber.runner" />
+      <option name="MAIN_CLASS_NAME" value="com.atf.template.ui.cucumber.runner.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="template-atf-ui" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="verify" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map>
+                <entry key="run-ui-tests" value="true" />
+                <entry key="default" value="true" />
+              </map>
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.Run UI Tests" />
+      <item itemvalue="Maven.template-atf-ui" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -127,13 +210,91 @@
       <option name="project" value="LOCAL" />
       <updated>1709470645276</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="headless=false">
+      <option name="closed" value="true" />
+      <created>1710268372795</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710268372795</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update webdrivermanager version">
+      <option name="closed" value="true" />
+      <created>1711272058474</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711272058474</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update webdrivermanager version&#10;Add validation For Products Menu">
+      <option name="closed" value="true" />
+      <created>1711290851145</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711290851145</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="update extent report commit" />
     <MESSAGE value="headless=false" />
-    <option name="LAST_COMMIT_MESSAGE" value="headless=false" />
+    <MESSAGE value="Update webdrivermanager version" />
+    <MESSAGE value="Update webdrivermanager version&#10;Add validation For Products Menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update webdrivermanager version&#10;Add validation For Products Menu" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program Files/Zulu/zulu-17/lib/src.zip!/java.base/java/lang/NumberFormatException.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/io/github/bonigarcia/webdrivermanager/5.7.0/webdrivermanager-5.7.0.jar!/io/github/bonigarcia/wdm/WebDriverManager.class</url>
+          <line>425</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
+          <line>252</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/actions/GenericActions.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
+          <line>250</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
+          <line>247</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
+          <line>258</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

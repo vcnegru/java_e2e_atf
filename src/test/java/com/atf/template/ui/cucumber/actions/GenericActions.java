@@ -17,7 +17,6 @@ public class GenericActions {
 
     public static void populateField(WebElement element, String value) {
         waitFluent().until(ExpectedConditions.visibilityOf(element));
-
         element.clear();
         element.sendKeys(value);
         log.info("Populated field with {}", value);
@@ -26,9 +25,9 @@ public class GenericActions {
     public static Boolean checkIfPresent(WebElement element) {
         try {
             waitFluent().until(ExpectedConditions.visibilityOf(element));
-            log.info("Element name '{}' is present on the page", element.getText());
+            log.info("Element name '{}' is present on the page (element='{}')", element.getText(), element.toString());
         } catch (TimeoutException exception) {
-            log.info("Element is NOT present on the page: {}", element.toString());
+            log.error("Element is NOT present on the page: {}", element.toString());
             return false;
         }
         return true;

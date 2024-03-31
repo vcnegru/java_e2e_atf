@@ -1,5 +1,7 @@
 package com.atf.template.ui.cucumber.pageObjects;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,8 +11,11 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.NoSuchElementException;
 
 import static com.atf.template.ui.cucumber.actions.GenericActions.*;
+import static com.atf.template.ui.cucumber.context.DataKeys.PAGE;
+import static com.atf.template.ui.cucumber.context.ScenarioContext.saveToContext;
 
-public class HomePage {
+@Slf4j
+public class HomePage extends  BasePage {
     private final WebDriver driver;
     @FindBy(css = ".header__announce.announcement-bar")
     private WebElement headerAnnouncementBar;
@@ -102,8 +107,12 @@ public class HomePage {
         return new HomePage(driver);
     }
 
-    public ProductsPage productPageIsOpen() {
-        return new ProductsPage(driver);
+    public DogProductsPage dogProductPageIsOpen() {
+        return new DogProductsPage(driver);
+    }
+
+    public CatProductsPage catProductPageIsOpen() {
+        return new CatProductsPage(driver);
     }
 
     public void clickCloseOfferButton() {
@@ -207,7 +216,7 @@ public class HomePage {
     }
 
     public void checkProducts(String product) {
-        Boolean isPresent = true;
+//        Boolean isPresent = true;
         switch (product) {
             case "Breed + Health Dog DNA Test":
                 checkIfPresent(dogProductsImage);
@@ -228,8 +237,51 @@ public class HomePage {
             default:
                 throw new NoSuchElementException("Such element is not defined on page: " + product);
         }
-        if (!isPresent) {
-            throw new NoSuchElementException("Such element is not defined/visible on page: " + product);
+//        if (!isPresent) {
+//            throw new NoSuchElementException("Such element is not defined/visible on page: " + product);
+//        }
+    }
+    public void navigateToProduct(String product) {
+//        Boolean isPresent = true;
+        Actions actions = new Actions(driver);
+
+        log.warn("Start navigateToProduct");
+        switch (product) {
+            case "Breed + Health Dog DNA Test":
+                log.warn("Start click dogProductsImage " + dogProductsImage.getText());
+                actions.moveToElement(topMenuForDogs).build().perform();
+                dogProductsImage.click();
+                log.warn("Clicked dogProductsImage");
+                DogProductsPage dogProductsPage = new DogProductsPage(driver);
+                saveToContext(PAGE, dogProductsPage);
+                break;
+            case "Breed + Health Cat DNA Test":
+//                click(catBreedProductsName);
+                actions.moveToElement(topMenuForCats).build().perform();
+                catBreedProductsImage.click();
+                CatProductsPage catBreedProductPage = new CatProductsPage(driver);
+                saveToContext(PAGE, catBreedProductPage);
+                break;
+            case "Oral Health Test for Cats":
+//                click(catOralProductsName);
+                actions.moveToElement(topMenuForCats).build().perform();
+                catOralProductsImage.click();
+                CatProductsPage catOralProductPage = new CatProductsPage(driver);
+                saveToContext(PAGE, catOralProductPage);
+                break;
+            case "Whole Genome Test":
+//                click(catGenomeProductsName);
+                actions.moveToElement(topMenuForCats).build().perform();
+                catGenomeProductsImage.click();
+                CatProductsPage catGenomeProductPage = new CatProductsPage(driver);
+                saveToContext(PAGE, catGenomeProductPage);
+                break;
+            default:
+                throw new NoSuchElementException("Such element is not defined on page: " + product);
         }
+        log.warn("End navigateToProduct");
+//        if (!isPresent) {
+//            throw new NoSuchElementException("Such element is not defined/visible on page: " + product);
+//        }
     }
 }

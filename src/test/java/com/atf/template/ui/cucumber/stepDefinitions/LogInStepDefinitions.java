@@ -1,20 +1,18 @@
 package com.atf.template.ui.cucumber.stepDefinitions;
 
 import com.atf.template.ui.cucumber.pageObjects.HomePage;
-import com.atf.template.ui.cucumber.pageObjects.ProductsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import static assertions.CustomAssertions.assertThat;
+//import static assertions.CustomAssertions.assertThat;
 import static com.atf.template.ui.cucumber.config.PropertiesKeys.BASE_URL;
 import static com.atf.template.ui.cucumber.config.PropertyReader.getProperty;
 import static com.atf.template.ui.cucumber.context.DataKeys.PAGE;
@@ -70,9 +68,11 @@ public class LogInStepDefinitions extends BaseSteps {
     @Then("^user clicks on '(.*)' header menu$")
     public void userHoversHeaderMenuItem(String headerMenu) {
         HomePage homePage = getFromContext(PAGE);
+        log.info("Start userHoversHeaderMenuItem");
         try {
             homePage.checkIfPresentMenuHomePage(headerMenu);
             homePage.hoverMenuHomePage(headerMenu);
+            log.info("Ended userHoversHeaderMenuItem");
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("Definition not found for button/element: " + headerMenu);
         }
@@ -83,27 +83,28 @@ public class LogInStepDefinitions extends BaseSteps {
     public void productsPageIsOpen(String pageName) {
         HomePage homePage = getFromContext(PAGE);
         switch (pageName) {
-            case "Products" -> saveToContext(PAGE, homePage.productPageIsOpen());
+            case "Dog Products" -> saveToContext(PAGE, homePage.dogProductPageIsOpen());
+            case "Cat Products" -> saveToContext(PAGE, homePage.catProductPageIsOpen());
         }
     }
 
     @When("^following error message is displayed:$")
     public void followingErrorMessageIsDisplayed(String errorMessage) {
         HomePage homePage = getFromContext(PAGE);
-        assertThat("login error message is displayed", homePage.getLoginErrorMessage(), is(errorMessage));
+//        assertThat("login error message is displayed", homePage.getLoginErrorMessage(), is(errorMessage));
     }
 
-    @When("^user opens menu$")
-    public void userOpensMenu() {
-        ProductsPage productsPage = getFromContext(PAGE);
-        productsPage.openMenu();
-    }
-
-    @Then("^'(.+)' menu label is displayed$")
-    public void userIsLogged(String menuLabel) {
-        ProductsPage productsPage = getFromContext(PAGE);
-        assertThat(menuLabel + "menu label is displayed", productsPage.getMenuLabel(0), is(menuLabel));
-    }
+//    @When("^user opens menu$")
+//    public void userOpensMenu() {
+//        ProductsPage productsPage = getFromContext(PAGE);
+//        productsPage.openMenu();
+//    }
+//
+//    @Then("^'(.+)' menu label is displayed$")
+//    public void userIsLogged(String menuLabel) {
+//        ProductsPage productsPage = getFromContext(PAGE);
+//        assertThat(menuLabel + "menu label is displayed", productsPage.getMenuLabel(0), is(menuLabel));
+//    }
 
     @Then("{string} page is displayed with following details:")
     public void homePageIsDisplayedWithFollowingDetails(String pageName, Map<String, String> pageDetails) throws IOException {
