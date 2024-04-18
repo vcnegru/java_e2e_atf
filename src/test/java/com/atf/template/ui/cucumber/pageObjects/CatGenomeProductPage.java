@@ -1,12 +1,10 @@
 package com.atf.template.ui.cucumber.pageObjects;
 
-import com.atf.template.ui.cucumber.context.DataKeys;
 import com.atf.template.ui.cucumber.helper.ProductMiniCart;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -18,7 +16,7 @@ import static com.atf.template.ui.cucumber.context.MiniCart.addProductToMiniCart
 import static com.atf.template.ui.cucumber.context.ScenarioContext.getFromContext;
 
 @Slf4j
-public class CatProductsPage extends ProductPage{
+public class CatGenomeProductPage extends ProductPage {
 //    private WebDriver driver;
 
     //    Breed + Health Dog DNA Test
@@ -75,10 +73,8 @@ public class CatProductsPage extends ProductPage{
     @FindBy(css = "nav > a")
     private List<WebElement> menuLabels;
 
-    public CatProductsPage(WebDriver driver) {
+    public CatGenomeProductPage(WebDriver driver) {
         super(driver);
-//        this.driver = driver;
-//        PageFactory.initElements(driver, this);
     }
 
     public String getMenuLabel(int labelIndex) {

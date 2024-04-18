@@ -6,13 +6,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
-import static com.atf.template.ui.cucumber.config.WebDriverConfiguration.getDriver;
+//import static com.atf.template.ui.cucumber.config.WebDriverConfiguration.getDriver;
+import static com.atf.template.ui.cucumber.config.WebDriverConfig.getDriver;
 @Slf4j
 public class GenericActions {
 
     public static void click(WebElement element) {
         waitFluent().until(ExpectedConditions.visibilityOf(element));
-        click(element);
+        element.click();
+    }
+
+    public static void getText(WebElement element) {
+        waitFluent().until(ExpectedConditions.visibilityOf(element));
+        element.getText();
     }
 
     public static void populateField(WebElement element, String value) {

@@ -1,6 +1,7 @@
 package com.atf.template.ui.cucumber.stepDefinitions;
 
 import com.atf.template.ui.cucumber.pageObjects.HomePage;
+import com.atf.template.ui.cucumber.pageObjects.MiniCartProductPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,7 +33,7 @@ public class HomePageStepDefinitions extends BaseSteps {
 
     @When("^(?:Popup|Header) '(.*)' is displayed$")
     public void validateOfferPopupIsDisplayed(String elementName) {
-        HomePage homePage =getFromContext(PAGE);
+        HomePage homePage = getFromContext(PAGE);
         switch (elementName) {
             case "Exclusive Offer":
                 homePage.popupOfferIsDisplayed();
@@ -46,7 +47,7 @@ public class HomePageStepDefinitions extends BaseSteps {
             default:
                 throw new NoSuchElementException("Popup has no locator defined: " + elementName);
         }
-        saveToContext(PAGE, homePage);
+//        saveToContext(PAGE, homePage);
     }
 
     @Then("^user clicks on '(.*)' button$")
@@ -59,10 +60,12 @@ public class HomePageStepDefinitions extends BaseSteps {
             case "Accept Cookies":
                 homePage.clickAcceptCookiesButton();
                 break;
+//            case "Close mini cart":
+//                homePage.clickCloseMiniCart();
+//                break;
             default:
                 throw new NoSuchElementException("Definition not found for button/element: " + button);
         }
-
     }
 
     @Then("^user clicks on '(.*)' header menu$")
@@ -145,9 +148,19 @@ public class HomePageStepDefinitions extends BaseSteps {
             homePage.checkProducts(dogProduct);
         }
     }
+
 //
 //    @And("{string} page header menu elements are displayed")
 //    public void homePageHeaderMenuElementsAreDisplayed() {
 //    }
+
+    @Then("^mini cart is displayed$")
+    public void miniCartIsDisplayed() {
+        MiniCartProductPage miniCartProductPage = getFromContext(PAGE);
+        miniCartProductPage.checkMiniCartHeaderIsDisplayed();
+//        homePage.clickCloseMiniCart();
+//        DogProductsPage productPage = new DogProductsPage(driver);
+//        saveToContext(PAGE, miniCartProductPage);
+    }
 }
 

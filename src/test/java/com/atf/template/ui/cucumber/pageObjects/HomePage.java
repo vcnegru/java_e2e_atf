@@ -1,12 +1,11 @@
 package com.atf.template.ui.cucumber.pageObjects;
 
+import com.atf.template.ui.cucumber.config.WebDriverConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.NoSuchElementException;
 
@@ -16,7 +15,8 @@ import static com.atf.template.ui.cucumber.context.ScenarioContext.saveToContext
 
 @Slf4j
 public class HomePage extends  BasePage {
-    private final WebDriver driver;
+//    private WebDriver driver;
+
     @FindBy(css = ".header__announce.announcement-bar")
     private WebElement headerAnnouncementBar;
     @FindBy(css = ".logo__wrap")
@@ -54,16 +54,7 @@ public class HomePage extends  BasePage {
     private WebElement topMenuRegisterKit;
     @FindBy(xpath = "//a[normalize-space()='Sign Up']")
     private WebElement topMenuSignUp;
-    @FindBy(xpath = "//button[@aria-label='Show minicart']")
-    private WebElement topMenuMiniCart;
 
-    //  Mini Cart----------------------------------------------
-    @FindBy(xpath = "//div[@class='mini-cart__title']")
-    private WebElement miniCartHeader;
-    @FindBy(xpath = "//button[@class='mini-cart__close']//*[name()='svg']//*[name()='use' and contains(@href,'/assets/im')]")
-    private WebElement miniCartCloseButton;
-    @FindBy(xpath = "//button[contains(text(),'Continue Shopping')]")
-    private WebElement miniCartContinueShoppingButton;
     //  Dog Products-------------------------------------------
     @FindBy(xpath = "//img[@alt='IMG Packaging for Dog Product']")
     private WebElement dogProductsImage;
@@ -83,14 +74,17 @@ public class HomePage extends  BasePage {
     @FindBy(xpath = "//p[normalize-space()='Whole Genome Test']")
     private WebElement catGenomeProductsName;
     //    -----------------------------------------------------
+    @FindBy(xpath = "//button[@aria-label='Show minicart']")
+    private WebElement topMenuMiniCart;
     @FindBy(css = "#login-button")
     private WebElement loginButton;
     @FindBy(css = "h3")
     private WebElement loginMessageError;
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
+//        this.driver = driver;
+//        PageFactory.initElements(driver, this);
     }
 
     public void popupOfferIsDisplayed() {
@@ -104,15 +98,15 @@ public class HomePage extends  BasePage {
     }
 
     public HomePage homePageIsOpen() {
-        return new HomePage(driver);
+        return new HomePage(WebDriverConfig.getDriver());
     }
 
-    public DogProductsPage dogProductPageIsOpen() {
-        return new DogProductsPage(driver);
+    public DogDNAProductPage dogProductPageIsOpen() {
+        return new DogDNAProductPage(WebDriverConfig.getDriver());
     }
 
     public CatProductsPage catProductPageIsOpen() {
-        return new CatProductsPage(driver);
+        return new CatProductsPage(WebDriverConfig.getDriver());
     }
 
     public void clickCloseOfferButton() {
@@ -175,12 +169,11 @@ public class HomePage extends  BasePage {
                 break;
             default:
                 throw new NoSuchElementException("Such element is not defined on page: " + menuElement);
-
         }
     }
 
     public void hoverMenuHomePage(String menuElement) {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(WebDriverConfig.getDriver());
         switch (menuElement) {
             case "Logo":
                 actions.moveToElement(headerLogo).build().perform();
@@ -252,28 +245,28 @@ public class HomePage extends  BasePage {
                 actions.moveToElement(topMenuForDogs).build().perform();
                 dogProductsImage.click();
                 log.warn("Clicked dogProductsImage");
-                DogProductsPage dogProductsPage = new DogProductsPage(driver);
-                saveToContext(PAGE, dogProductsPage);
+                DogDNAProductPage page = new DogDNAProductPage(driver);
+                saveToContext(PAGE, page);
                 break;
             case "Breed + Health Cat DNA Test":
 //                click(catBreedProductsName);
                 actions.moveToElement(topMenuForCats).build().perform();
                 catBreedProductsImage.click();
-                CatProductsPage catBreedProductPage = new CatProductsPage(driver);
-                saveToContext(PAGE, catBreedProductPage);
+                CatDNAProductPage catDNAPage = new CatDNAProductPage(driver);
+                saveToContext(PAGE, catDNAPage);
                 break;
             case "Oral Health Test for Cats":
 //                click(catOralProductsName);
                 actions.moveToElement(topMenuForCats).build().perform();
                 catOralProductsImage.click();
-                CatProductsPage catOralProductPage = new CatProductsPage(driver);
+                CatOralProductPage catOralProductPage = new CatOralProductPage(driver);
                 saveToContext(PAGE, catOralProductPage);
                 break;
             case "Whole Genome Test":
 //                click(catGenomeProductsName);
                 actions.moveToElement(topMenuForCats).build().perform();
                 catGenomeProductsImage.click();
-                CatProductsPage catGenomeProductPage = new CatProductsPage(driver);
+                CatGenomeProductPage catGenomeProductPage = new CatGenomeProductPage(driver);
                 saveToContext(PAGE, catGenomeProductPage);
                 break;
             default:
@@ -284,4 +277,5 @@ public class HomePage extends  BasePage {
 //            throw new NoSuchElementException("Such element is not defined/visible on page: " + product);
 //        }
     }
+
 }

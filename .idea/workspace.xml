@@ -5,20 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54300b66-4be4-4504-af19-b6ca52c36b28" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CatProductsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/ProductPageSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/atf/template/ui/cucumber/constants/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/assertions/CustomAssertions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/config/WebDriverConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/context/MiniCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/data/DataActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/helper/ProductCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/helper/ProductMiniCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CartProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CatDNAProductPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CatGenomeProductPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CatOralProductPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/MiniCartProductPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/MiniCartSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/assertions/CustomAssertions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atf/template/ui/cucumber/assertions/CustomAssertions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CustomExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/atf/template/ui/cucumber/exceptions/CustomExceptions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/actions/GenericActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/actions/GenericActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/config/WebDriverConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/config/WebDriverConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/context/DataKeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/context/DataKeys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/hooks/StepHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/hooks/StepHooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CatProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/CatProductsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/DogProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/DogDNAProductPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/DogProductsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/LogInStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/LogInStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/runner/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/BaseSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/BaseSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/HomePageStepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/HomePageStepDefinitions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/ProductPageSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/stepDefinitions/ProductPageSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/1_HomePage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/1_HomePage.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/2_ForCatsPage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/2_ForCatsPage.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/3_ForDogsPage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/3_ForDogsPage.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/properties/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/properties/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,14 +64,16 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="customMavenHome" value="C:/dev/apache-maven-3.9.3" />
         <option name="localRepository" value="C:\Users\admin\.m2\repository" />
-        <option name="mavenHome" value="C:/dev/apache-maven-3.9.3" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
         <option name="userSettingsFile" value="C:\Users\admin\.m2\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="workspaceImportForciblyTurnedOn" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
@@ -74,6 +94,7 @@
     "Cucumber Java.Feature: HomePage.executor": "Run",
     "Cucumber Java.Scenario: User accesses BasePaws Home page as guest user.executor": "Run",
     "JUnit.Run UI Tests.executor": "Run",
+    "Maven.template-atf-ui [clean,test,install].executor": "Run",
     "Maven.template-atf-ui [clean,verify].executor": "Run",
     "Maven.template-atf-ui [clean].executor": "Run",
     "Maven.template-atf-ui [compile].executor": "Run",
@@ -83,16 +104,23 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IntellijProjects/work/java_e2e_atf",
+    "last_opened_file_path": "D:/IntellijProjects/work/java_e2e_atf/src/main/java/com/atf/template/ui/cucumber",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IntellijProjects\work\java_e2e_atf\src\test\resources\properties\env" />
       <recent name="D:\IntellijProjects\work\java_e2e_atf" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.atf.template.ui.cucumber.stepDefinitions" />
+      <recent name="com.atf.ui" />
+      <recent name="com.atf.ui.actions" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.atf.template.ui.cucumber.pageObjects" />
+      <recent name="com.atf.template.ui.cucumber.assertions" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.Run UI Tests">
@@ -102,6 +130,7 @@
       <option name="MAIN_CLASS_NAME" value="com.atf.template.ui.cucumber.runner.TestRunner" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea -Denv=prod" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,13 +174,6 @@
       <item itemvalue="JUnit.Run UI Tests" />
       <item itemvalue="Maven.template-atf-ui" />
     </list>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -234,7 +256,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711290851145</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add validation for Dog and Cat products pages">
+      <option name="closed" value="true" />
+      <created>1711894941390</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711894941390</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Rename page to HomePageStepDefinitions">
+      <option name="closed" value="true" />
+      <created>1711895070893</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711895070893</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -254,47 +292,69 @@
     <MESSAGE value="headless=false" />
     <MESSAGE value="Update webdrivermanager version" />
     <MESSAGE value="Update webdrivermanager version&#10;Add validation For Products Menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update webdrivermanager version&#10;Add validation For Products Menu" />
+    <MESSAGE value="Add validation for Dog and Cat products pages" />
+    <MESSAGE value="Rename page to HomePageStepDefinitions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename page to HomePageStepDefinitions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>jar://C:/Program Files/Zulu/zulu-17/lib/src.zip!/java.base/java/lang/NumberFormatException.java</url>
           <line>63</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/io/github/bonigarcia/webdrivermanager/5.7.0/webdrivermanager-5.7.0.jar!/io/github/bonigarcia/wdm/WebDriverManager.class</url>
           <line>425</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
-          <line>252</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/ui/pageObjects/HomePage.java</url>
+          <line>251</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/actions/GenericActions.java</url>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/ui/actions/GenericActions.java</url>
           <line>14</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
-          <line>250</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/ui/pageObjects/HomePage.java</url>
+          <line>249</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
-          <line>247</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/ui/pageObjects/HomePage.java</url>
+          <line>246</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/HomePage.java</url>
-          <line>258</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/ui/pageObjects/HomePage.java</url>
+          <line>257</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/hooks/StepHooks.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductPage.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/pageObjects/ProductPage.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="index" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

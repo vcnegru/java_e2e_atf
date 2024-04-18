@@ -12,8 +12,9 @@ import org.junit.runner.RunWith;
         },
         stepNotifications = true,
         features = "classpath:features",
-        glue = "com.atf.template.ui",
+        glue = "com.atf.template.ui.cucumber",
         tags = ("@Positive")
 )
 public class TestRunner {
+
 }

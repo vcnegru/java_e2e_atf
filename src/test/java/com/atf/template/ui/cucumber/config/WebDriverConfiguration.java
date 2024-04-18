@@ -1,5 +1,7 @@
 package com.atf.template.ui.cucumber.config;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +19,7 @@ public class WebDriverConfiguration {
 
     public static WebDriver getDriver() {
         if (driver == null) {
+            log.info("Starting NEW WebDriver!!!");
             WebDriverManager.chromedriver().clearDriverCache().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--start-maximized");

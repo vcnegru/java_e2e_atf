@@ -1,12 +1,10 @@
 package com.atf.template.ui.cucumber.pageObjects;
 
-import com.atf.template.ui.cucumber.context.DataKeys;
 import com.atf.template.ui.cucumber.helper.ProductMiniCart;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -18,12 +16,12 @@ import static com.atf.template.ui.cucumber.context.MiniCart.addProductToMiniCart
 import static com.atf.template.ui.cucumber.context.ScenarioContext.getFromContext;
 
 @Slf4j
-public class CatProductsPage extends ProductPage{
+public class CatDNAProductPage extends ProductPage {
 //    private WebDriver driver;
 
     //    Breed + Health Dog DNA Test
     @FindBy(css = ".product-detail-carousel__img[fetchpriority='high']")
-                     //*[@id="__next"]//section[1]//a
+    //*[@id="__next"]//section[1]//a
     private WebElement catBreedProductImage;
     @FindBy(css = ".product-detail-carousel__img[fetchpriority='high']")
     private WebElement catOralProductImage;
@@ -34,13 +32,13 @@ public class CatProductsPage extends ProductPage{
     //div[contains(@class,'product-detail-bottom-carousel__img-wrap')]//img[@alt='BP 3d boxes with-dog 02']
     //div[contains(@class,'product-detail-bottom-carousel__img-wrap')]//img[@alt='BP IMG Product-page Dog-HIW 1x1']
     @FindBy(xpath = "//div[@class='product-detail__suptitle']")
-    private WebElement  catProductSuptitle;
+    private WebElement catProductSuptitle;
     @FindBy(xpath = "//h1[contains(text(),'Breed + Health Cat DNA Test')]")
-    private WebElement  catBreedProductDetailTitle;
+    private WebElement catBreedProductDetailTitle;
     @FindBy(xpath = "//h1[contains(text(),'Oral Health Test for Cats')]")
-    private WebElement  catOralProductDetailTitle;
+    private WebElement catOralProductDetailTitle;
     @FindBy(xpath = "//h1[contains(text(),'Whole Genome Sequencing')]")
-    private WebElement  catGenomeProductDetailTitle;
+    private WebElement catGenomeProductDetailTitle;
     @FindBy(xpath = "//s[@class='product-detail__old-price']")
     private WebElement oldPriceLabel;
     @FindBy(xpath = "//strong[@class='product-detail__new-price']")
@@ -75,15 +73,13 @@ public class CatProductsPage extends ProductPage{
     @FindBy(css = "nav > a")
     private List<WebElement> menuLabels;
 
-    public CatProductsPage(WebDriver driver) {
+    public CatDNAProductPage(WebDriver driver) {
         super(driver);
-//        this.driver = driver;
-//        PageFactory.initElements(driver, this);
     }
 
     public String getMenuLabel(int labelIndex) {
         checkIfPresent(menuLabels.get(labelIndex));
-        return  menuLabels.get(labelIndex).getText();
+        return menuLabels.get(labelIndex).getText();
     }
 
     public void openMenu() {
@@ -140,7 +136,7 @@ public class CatProductsPage extends ProductPage{
     }
 
     public void addProductSetToCart(String productName, int testCount) {
-        double productPrice = Double.parseDouble(newPriceLabel.getText().replace("$",""));
+        double productPrice = Double.parseDouble(newPriceLabel.getText().replace("$", ""));
         int productCount = getProductCount();
         click(addToCartButton);
 

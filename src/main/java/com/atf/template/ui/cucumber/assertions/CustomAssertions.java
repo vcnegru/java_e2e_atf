@@ -1,4 +1,4 @@
-package assertions;
+package com.atf.template.ui.cucumber.assertions;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hamcrest.Matcher;
