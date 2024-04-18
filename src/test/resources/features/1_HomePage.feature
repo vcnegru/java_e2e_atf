@@ -4,7 +4,7 @@ Feature: Home Page
 #  Background:
 #    Given user accesses BasePaws page
 
-  @Positive
+  @Positive @run
   Scenario: User accesses BasePaws Home page as guest user
     When user accesses BasePaws page
     And Popup 'Exclusive Offer' is displayed

@@ -29,7 +29,7 @@ Feature: For Dogs Menu
       | Product Count details          |
       | Add to cart                    |
 
-  @Positive
+  @Positive @run
   Scenario: Guest User adds product 'Breed + Health Dog DNA Test' for Dogs to cart
     Given user clicks on 'For Dogs' header menu
     And user clicks on product:

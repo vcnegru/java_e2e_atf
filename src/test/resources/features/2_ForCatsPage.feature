@@ -61,7 +61,7 @@ Feature: For Cats Menu
       | Product Count details           |
       | Add to cart                     |
 
-  @Positive
+  @Positive @run
   Scenario: Guest User adds product 'Breed + Health Cat DNA Test' for Cats to cart
     Given user clicks on 'For Cats' header menu
     And user clicks on product:
