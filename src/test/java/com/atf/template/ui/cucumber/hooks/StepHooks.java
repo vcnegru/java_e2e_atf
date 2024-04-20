@@ -36,12 +36,12 @@ public class StepHooks {
     }
 
 //    For Debug Only, causes heavyweight HTML Reports, adds Screenshot at Every Step
-    @AfterStep
-    public void addScreenshot(Scenario scenario) throws InterruptedException {
-        sleep(500);
-        final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-        scenario.attach(screenshot, "image/png", scenario.getName());
-    }
+//    @AfterStep
+//    public void addScreenshot(Scenario scenario) throws InterruptedException {
+//        sleep(500);
+//        final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+//        scenario.attach(screenshot, "image/png", scenario.getName());
+//    }
 
     @After
     public void tearDown(Scenario scenario) {

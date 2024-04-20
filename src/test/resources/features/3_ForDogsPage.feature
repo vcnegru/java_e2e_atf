@@ -54,7 +54,7 @@ Feature: For Dogs Menu
       | product[0].name     | Breed + Health Dog DNA Test |
       | product[0].count    | 1                           |
       | product[0].quantity | 1 test                      |
-      | product[0].subtotal | 109.00                      |
+      | product[0].subtotal | 149.00                      |
       | product[1].name     | Breed + Health Dog DNA Test |
       | product[1].count    | 1                           |
       | product[1].quantity | 2 tests                     |

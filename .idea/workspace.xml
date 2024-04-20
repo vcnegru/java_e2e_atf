@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54300b66-4be4-4504-af19-b6ca52c36b28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/runner/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/runner/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/hooks/StepHooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/atf/template/ui/cucumber/hooks/StepHooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/2_ForCatsPage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/2_ForCatsPage.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/3_ForDogsPage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/3_ForDogsPage.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713462438093</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Limit run to @Positive tag">
+      <option name="closed" value="true" />
+      <created>1713463033257</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713463033257</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,7 +291,8 @@
     <MESSAGE value="Rename page to HomePageStepDefinitions" />
     <MESSAGE value="Added tests with products and screenshots" />
     <MESSAGE value="Limit run to @run tag" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limit run to @run tag" />
+    <MESSAGE value="Limit run to @Positive tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Limit run to @Positive tag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
