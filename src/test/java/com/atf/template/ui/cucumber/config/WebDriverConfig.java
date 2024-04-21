@@ -24,8 +24,9 @@ public class WebDriverConfig {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--window-size=1920,1080");
         if (parseBoolean(getProperty(HEADLESS))) {
-            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--headless=new");
             log.info("ChromeDriver started in headless mode");
         }
         driver = new ChromeDriver(chromeOptions);

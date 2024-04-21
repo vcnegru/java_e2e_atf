@@ -10,11 +10,13 @@ import org.openqa.selenium.support.FindBy;
 import java.util.NoSuchElementException;
 
 import static com.atf.template.ui.cucumber.actions.GenericActions.*;
+import static com.atf.template.ui.cucumber.constants.Constants.CAT_GENOME_TEST;
 import static com.atf.template.ui.cucumber.context.DataKeys.PAGE;
+import static com.atf.template.ui.cucumber.context.DataKeys.PRODUCT;
 import static com.atf.template.ui.cucumber.context.ScenarioContext.saveToContext;
 
 @Slf4j
-public class HomePage extends  BasePage {
+public class HomePage extends BasePage {
 //    private WebDriver driver;
 
     @FindBy(css = ".header__announce.announcement-bar")
@@ -33,7 +35,7 @@ public class HomePage extends  BasePage {
     private WebElement cookiesPopup;
     @FindBy(css = "#rcc-confirm-button")
     private WebElement acceptCookies;
-    @FindBy(css = ".hero-section__title")
+    @FindBy(xpath = "//div[@class='hero-section__title']")
     private WebElement homePageHeader;
     @FindBy(css = ".hero-section__desc")
     private WebElement homePageDescription;
@@ -73,13 +75,6 @@ public class HomePage extends  BasePage {
     private WebElement catGenomeProductsImage;
     @FindBy(xpath = "//p[normalize-space()='Whole Genome Test']")
     private WebElement catGenomeProductsName;
-    //    -----------------------------------------------------
-    @FindBy(xpath = "//button[@aria-label='Show minicart']")
-    private WebElement topMenuMiniCart;
-    @FindBy(css = "#login-button")
-    private WebElement loginButton;
-    @FindBy(css = "h3")
-    private WebElement loginMessageError;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -134,9 +129,6 @@ public class HomePage extends  BasePage {
         text.contains(homePageDescription.getText());
     }
 
-    public String getLoginErrorMessage() {
-        return loginMessageError.getText();
-    }
 
     public void checkIfPresentMenuHomePage(String menuElement) {
         switch (menuElement) {
@@ -234,11 +226,12 @@ public class HomePage extends  BasePage {
 //            throw new NoSuchElementException("Such element is not defined/visible on page: " + product);
 //        }
     }
+
     public void navigateToProduct(String product) {
 //        Boolean isPresent = true;
         Actions actions = new Actions(driver);
 
-        log.warn("Start navigateToProduct");
+        log.warn("Start navigateToProduct: {}", product);
         switch (product) {
             case "Breed + Health Dog DNA Test":
                 log.warn("Start click dogProductsImage " + dogProductsImage.getText());
@@ -247,6 +240,7 @@ public class HomePage extends  BasePage {
                 log.warn("Clicked dogProductsImage");
                 DogDNAProductPage page = new DogDNAProductPage(driver);
                 saveToContext(PAGE, page);
+                saveToContext(PRODUCT, product);
                 break;
             case "Breed + Health Cat DNA Test":
 //                click(catBreedProductsName);
@@ -254,6 +248,7 @@ public class HomePage extends  BasePage {
                 catBreedProductsImage.click();
                 CatDNAProductPage catDNAPage = new CatDNAProductPage(driver);
                 saveToContext(PAGE, catDNAPage);
+                saveToContext(PRODUCT, product);
                 break;
             case "Oral Health Test for Cats":
 //                click(catOralProductsName);
@@ -261,6 +256,7 @@ public class HomePage extends  BasePage {
                 catOralProductsImage.click();
                 CatOralProductPage catOralProductPage = new CatOralProductPage(driver);
                 saveToContext(PAGE, catOralProductPage);
+                saveToContext(PRODUCT, product);
                 break;
             case "Whole Genome Test":
 //                click(catGenomeProductsName);
@@ -268,14 +264,13 @@ public class HomePage extends  BasePage {
                 catGenomeProductsImage.click();
                 CatGenomeProductPage catGenomeProductPage = new CatGenomeProductPage(driver);
                 saveToContext(PAGE, catGenomeProductPage);
+                saveToContext(PRODUCT, CAT_GENOME_TEST);
                 break;
             default:
                 throw new NoSuchElementException("Such element is not defined on page: " + product);
         }
         log.warn("End navigateToProduct");
-//        if (!isPresent) {
-//            throw new NoSuchElementException("Such element is not defined/visible on page: " + product);
-//        }
     }
+
 
 }

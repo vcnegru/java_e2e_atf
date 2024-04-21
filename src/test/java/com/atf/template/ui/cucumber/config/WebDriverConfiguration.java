@@ -24,7 +24,7 @@ public class WebDriverConfiguration {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--start-maximized");
             if (parseBoolean(getProperty(HEADLESS))) {
-                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--headless=new");
                 log.info("ChromeDriver started in headless mode");
             }
             driver = new ChromeDriver(chromeOptions);

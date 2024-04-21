@@ -136,6 +136,7 @@ public class CatOralProductPage extends ProductPage{
     }
 
     public void addProductSetToCart(String productName, int testCount) {
+        checkIfPresent(newPriceLabel);
         double productPrice = Double.parseDouble(newPriceLabel.getText().replace("$",""));
         int productCount = getProductCount();
         click(addToCartButton);

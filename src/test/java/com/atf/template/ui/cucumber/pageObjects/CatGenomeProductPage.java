@@ -59,7 +59,7 @@ public class CatGenomeProductPage extends ProductPage {
     private WebElement productCounterAddButton;
     @FindBy(xpath = "//input[@name='quantity']")
     private WebElement productCounter;
-    @FindBy(css = ".product-detail__btn.btn.btn--primary")
+    @FindBy(xpath = "//a[@class='product-detail__btn btn btn--primary ']")
     // .product-detail__btn.btn.btn--primary
     // //a[normalize-space()='Add to cart - $109.00|218.00|327.00']
     private WebElement addToCartButton;
@@ -136,6 +136,7 @@ public class CatGenomeProductPage extends ProductPage {
     }
 
     public void addProductSetToCart(String productName, int testCount) {
+        checkIfPresent(newPriceLabel);
         double productPrice = Double.parseDouble(newPriceLabel.getText().replace("$",""));
         int productCount = getProductCount();
         click(addToCartButton);

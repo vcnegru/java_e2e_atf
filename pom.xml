@@ -20,7 +20,7 @@
     <junit4.version>4.13.2</junit4.version>
     <junit5.version>5.10.1</junit5.version>
     <hamcrest.version>2.2</hamcrest.version>
-    <webdrivermanager.version>5.7.0</webdrivermanager.version>
+    <webdrivermanager.version>5.8.0</webdrivermanager.version>
     <lombok.verison>1.18.30</lombok.verison>
     <logback.version>1.4.14</logback.version>
     <slf4j.version>2.0.11</slf4j.version>

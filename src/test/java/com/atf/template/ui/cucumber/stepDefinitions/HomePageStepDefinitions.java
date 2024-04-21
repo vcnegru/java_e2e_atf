@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 //import static assertions.CustomAssertions.assertThat;
+import static com.atf.template.ui.cucumber.assertions.CustomAssertions.assertThat;
 import static com.atf.template.ui.cucumber.config.PropertiesKeys.BASE_URL;
 import static com.atf.template.ui.cucumber.config.PropertyReader.getProperty;
 import static com.atf.template.ui.cucumber.context.DataKeys.PAGE;
@@ -22,11 +23,17 @@ import static com.atf.template.ui.cucumber.context.ScenarioContext.saveToContext
 import static org.hamcrest.Matchers.is;
 
 @Slf4j
-public class HomePageStepDefinitions extends BaseSteps {
+public class HomePageStepDefinitions extends BasePageSteps {
     @Given("^user accesses BasePaws page$")
-    public void userHomePage() {
+    public void userHomePage() throws InterruptedException {
         driver.get(getProperty(BASE_URL));
         log.info("Customer accesses BasePaws page");
+//        JavascriptExecutor jse = (JavascriptExecutor)driver;
+//        Thread.sleep(3000);
+//        System.out.println("Zoom Out with 80%");
+//        // Zoom Out to 80%
+//        jse.executeScript("document.body.style.zoom='80%'");
+//        Thread.sleep(3000);
         HomePage homePage = new HomePage(driver);
         saveToContext(PAGE, homePage);
     }
@@ -70,7 +77,7 @@ public class HomePageStepDefinitions extends BaseSteps {
 
     @Then("^user clicks on '(.*)' header menu$")
     public void userHoversHeaderMenuItem(String headerMenu) {
-        HomePage homePage = getFromContext(PAGE);
+        HomePage homePage = new HomePage(driver);
         log.info("Start userHoversHeaderMenuItem");
         try {
             homePage.checkIfPresentMenuHomePage(headerMenu);
@@ -158,6 +165,7 @@ public class HomePageStepDefinitions extends BaseSteps {
     public void miniCartIsDisplayed() {
         MiniCartProductPage miniCartProductPage = getFromContext(PAGE);
         miniCartProductPage.checkMiniCartHeaderIsDisplayed();
+        assertThat("mini cart title is displayed: 'My cart'", miniCartProductPage.getMiniCartHeaderTitle(), is("My cart"));
 //        homePage.clickCloseMiniCart();
 //        DogProductsPage productPage = new DogProductsPage(driver);
 //        saveToContext(PAGE, miniCartProductPage);

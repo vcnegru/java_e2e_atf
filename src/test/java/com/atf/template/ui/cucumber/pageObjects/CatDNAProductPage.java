@@ -1,19 +1,23 @@
 package com.atf.template.ui.cucumber.pageObjects;
 
+import com.atf.template.ui.cucumber.config.WebDriverConfig;
 import com.atf.template.ui.cucumber.helper.ProductMiniCart;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static com.atf.template.ui.cucumber.actions.GenericActions.checkIfPresent;
-import static com.atf.template.ui.cucumber.actions.GenericActions.click;
+import static com.atf.template.ui.cucumber.actions.GenericActions.*;
+import static com.atf.template.ui.cucumber.assertions.CustomAssertions.assertThat;
 import static com.atf.template.ui.cucumber.context.DataKeys.TESTS_SET;
 import static com.atf.template.ui.cucumber.context.MiniCart.addProductToMiniCart;
 import static com.atf.template.ui.cucumber.context.ScenarioContext.getFromContext;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
 
 @Slf4j
 public class CatDNAProductPage extends ProductPage {
@@ -59,7 +63,7 @@ public class CatDNAProductPage extends ProductPage {
     private WebElement productCounterAddButton;
     @FindBy(xpath = "//input[@name='quantity']")
     private WebElement productCounter;
-    @FindBy(css = ".product-detail__btn.btn.btn--primary")
+    @FindBy(xpath = "//a[@class='product-detail__btn btn btn--primary ']")
     // .product-detail__btn.btn.btn--primary
     // //a[normalize-space()='Add to cart - $109.00|218.00|327.00']
     private WebElement addToCartButton;
@@ -105,6 +109,8 @@ public class CatDNAProductPage extends ProductPage {
                 break;
             case "Cat Product Suptile":
                 checkIfPresent(catProductSuptitle);
+                assertThat("Cat Breed+Health DNA Test Suptitle is displayed: Proactive Pet Care",
+                        getText(catProductSuptitle), containsString("Proactive Pet Care"));
                 break;
             case "Cat Breed Product Detail Title":
                 checkIfPresent(catBreedProductDetailTitle);
@@ -138,6 +144,7 @@ public class CatDNAProductPage extends ProductPage {
     public void addProductSetToCart(String productName, int testCount) {
         double productPrice = Double.parseDouble(newPriceLabel.getText().replace("$", ""));
         int productCount = getProductCount();
+        moveToWithJS(addToCartButton);
         click(addToCartButton);
 
         ProductMiniCart productMiniCart =
@@ -145,4 +152,5 @@ public class CatDNAProductPage extends ProductPage {
         addProductToMiniCart(productMiniCart);
         log.info("Product Added to in MEM MiniCart: {}", productMiniCart.toString());
     }
+
 }

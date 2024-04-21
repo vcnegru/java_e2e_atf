@@ -13,7 +13,8 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         features = "classpath:features",
         glue = "com.atf.template.ui.cucumber",
-        tags = ("@Positive")
+        tags = ("@Positive and not @Ignore")
+//        tags = ("@Positive and not @Ignore and @run")
 )
 public class TestRunner {
 

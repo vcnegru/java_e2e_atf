@@ -13,10 +13,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.atf.template.ui.cucumber.actions.GenericActions.waitFluent;
+import static com.atf.template.ui.cucumber.actions.GenericActions.*;
+
 @Slf4j
 @Getter
-public class MiniCartProductPage extends BasePage{
+public class MiniCartProductPage extends BasePage {
     private WebDriver driver;
 
     @FindBy(xpath = "//div[@class='mini-cart__title']")
@@ -44,53 +45,55 @@ public class MiniCartProductPage extends BasePage{
     @FindBy(xpath = "//div[@class='summary__row']//div[@class='total-price__new-price']")
     private WebElement summaryTotalPrice;
 
+    @FindBy(xpath = "//div/a[@class='summary__btn btn btn--primary ']")
+    private WebElement miniCartCheckoutButton;
+    @FindBy(xpath = "//div/a[@class='summary__btn btn btn--purple-reverse']")
+    private WebElement viewCartButton;
+
     public MiniCartProductPage(WebDriver driver) {
         super(driver);
 //        this.driver = driver;
 //        PageFactory.initElements(driver, this);
     }
 
-    public static int extractIndexVariable(String input) {
-        String pattern = "\\[(\\d+)]"; // Regular expression to match the index variable
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(input);
-        if (m.find()) {
-            return Integer.parseInt(m.group(1)); // Extract the index variable
-        }
-        return -1; // Return -1 if no index variable found
-    }
-    public static String extractPropertyVariable(String input) {
-        String pattern = "\\[\\d+]\\.(.*)"; // Regular expression to match the index variable
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(input);
-        if (m.find()) {
-            return m.group(1); // Extract the index variable
-        }
-        return "property_not_extracted"; // Return default value if no name extracted for variable found
-    }
+
 
     public List<WebElement> returnProductsMiniCart() {
         return listOfProducts;
     }
 
     public double getTotalPrice() {
-        return Double.parseDouble(summaryTotalPrice.getText().replace("$",""));
+        return Double.parseDouble(summaryTotalPrice.getText().replace("$", ""));
     }
+
     public String getTotalQuantity() {
         return summaryInfo.getText();
+    }
+
+    public String getMiniCartHeaderTitle() {
+        return miniCartTitle.getText();
     }
 
     public boolean checkMiniCartHeaderIsDisplayed() {
         return checkIfPresent(miniCartTitle);
     }
-    public static Boolean checkIfPresent(WebElement element) {
-        try {
-            waitFluent().until(ExpectedConditions.visibilityOf(element));
-            log.info("Element name '{}' is present on the page (element='{}')", element.getText(), element.toString());
-        } catch (TimeoutException exception) {
-            log.error("Element is NOT present on the page: {}", element.toString());
-            return false;
-        }
-        return true;
+
+//    public static Boolean checkIfPresent(WebElement element) {
+//        try {
+//            waitFluent().until(ExpectedConditions.visibilityOf(element));
+//            log.info("Element name '{}' is present on the page (element='{}')", element.getText(), element.toString());
+//        } catch (TimeoutException exception) {
+//            log.error("Element is NOT present on the page: {}", element.toString());
+//            return false;
+//        }
+//        return true;
+//    }
+
+    public void clickMiniCartCheckoutButton() {
+        click(miniCartCheckoutButton);
+    }
+
+    public void clickViewCartButton() {
+        click(viewCartButton);
     }
 }

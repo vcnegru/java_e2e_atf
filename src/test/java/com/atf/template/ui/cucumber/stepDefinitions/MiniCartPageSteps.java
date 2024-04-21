@@ -2,8 +2,11 @@ package com.atf.template.ui.cucumber.stepDefinitions;
 
 import com.atf.template.ui.cucumber.context.MiniCart;
 import com.atf.template.ui.cucumber.helper.ProductMiniCart;
+import com.atf.template.ui.cucumber.pageObjects.CartPage;
+import com.atf.template.ui.cucumber.pageObjects.CheckoutPage;
 import com.atf.template.ui.cucumber.pageObjects.MiniCartProductPage;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,20 +16,21 @@ import java.util.List;
 import java.util.Map;
 
 import static com.atf.template.ui.cucumber.actions.GenericActions.checkIfPresent;
+import static com.atf.template.ui.cucumber.actions.GenericActions.decimalFormat;
+import static com.atf.template.ui.cucumber.actions.GenericActions.extractIndexVariable;
+import static com.atf.template.ui.cucumber.actions.GenericActions.extractPropertyVariable;
 import static com.atf.template.ui.cucumber.assertions.CustomAssertions.assertThat;
 import static com.atf.template.ui.cucumber.context.DataKeys.PAGE;
 import static com.atf.template.ui.cucumber.context.DataKeys.PREV_PAGE;
 import static com.atf.template.ui.cucumber.context.MiniCart.getMiniCartSize;
 import static com.atf.template.ui.cucumber.context.ScenarioContext.getFromContext;
 import static com.atf.template.ui.cucumber.context.ScenarioContext.saveToContext;
-import static com.atf.template.ui.cucumber.pageObjects.MiniCartProductPage.extractIndexVariable;
-import static com.atf.template.ui.cucumber.pageObjects.MiniCartProductPage.extractPropertyVariable;
 import static java.lang.String.format;
 import static java.lang.Thread.sleep;
 import static org.hamcrest.Matchers.*;
 
 @Slf4j
-public class MiniCartSteps extends BaseSteps{
+public class MiniCartPageSteps extends BasePageSteps {
     @And("^user clicks on Close mini cart button$")
     public void closeMiniCart() {
         MiniCartProductPage miniCartProductPage = getFromContext(PAGE);
@@ -39,7 +43,6 @@ public class MiniCartSteps extends BaseSteps{
     @And("^mini cart has following items:$")
     public void miniCartHasItems(Map<String, String> items) throws InterruptedException {
         MiniCartProductPage miniCartProductPage = getFromContext(PAGE);
-
         miniCartProductPage.checkMiniCartHeaderIsDisplayed();
 
         List<WebElement> miniCartProductDivs = driver.findElements(By.xpath("//div[@class='cart-product__product']"));
@@ -61,14 +64,22 @@ public class MiniCartSteps extends BaseSteps{
                 assertThat(format("product[%s].count is", index), actualCount, is(Integer.parseInt(expectedEntry.getValue())));
                 assertThat(format("product[%s].count is", index), actualCount, is(MiniCart.getByIndex(index).getProductCount()));
             } else if ("subtotal".equals(property)) {
-                double actualSubtotal = products.get(index).getProductSubtotalPrice();
-                assertThat(format("product[%s].subtotal is", index), actualSubtotal, is(Double.parseDouble(expectedEntry.getValue())));
-                assertThat(format("product[%s].subtotal is", index), actualSubtotal, is(MiniCart.getByIndex(index).getProductSubtotalPrice()));
+                String actualSubtotal = decimalFormat.format(products.get(index).getProductSubtotalPrice());
+//;                String actualSubtotal = String.format("%,.2f", products.get(index).getProductSubtotalPrice());
+                assertThat(format("product[%s].subtotal is", index), actualSubtotal, is(expectedEntry.getValue()));
+                assertThat(format("product[%s].subtotal is", index), actualSubtotal, is(decimalFormat.format(MiniCart.getByIndex(index).getProductSubtotalPrice())));
             }
         }
-        assertThat("total price is: ", miniCartProductPage.getTotalPrice(),is(MiniCart.getTotalAmount()));
-        assertThat("total items count is(1): ", miniCartProductDivs.size(),is(getMiniCartSize()));
-        assertThat("total items count is(2): " + "Subtotal (" + getMiniCartSize() + " items)", miniCartProductPage.getTotalQuantity() ,containsString("Subtotal (" + getMiniCartSize() + " item"));
+
+    }
+
+    @And("^mini cart total quantities are as follow:$")
+    public void miniCartTotals(Map<String, String> items) {
+        MiniCartProductPage miniCartProductPage = getFromContext(PAGE);
+        assertThat("total price is: ", items.get("cart_total_price"), is(decimalFormat.format(MiniCart.getTotalAmount())));
+        assertThat("total products list size is: ", Integer.parseInt(items.get("cart_total_list_size")), is(getMiniCartSize()));
+        assertThat("total items count is: " + "Subtotal (" + Integer.parseInt(items.get("cart_products_count")) + " items)", miniCartProductPage.getTotalQuantity(), containsString("Subtotal (" + items.get("cart_products_count") + " item"));
+
     }
 
     public List<ProductMiniCart> parseCartPage() throws InterruptedException {
@@ -88,7 +99,10 @@ public class MiniCartSteps extends BaseSteps{
             String productCount = div.findElement(By.xpath(miniCartRowXpath + "[" + index + "]" + "//div//input[@class='counter__input input']")).getAttribute("value");
 
 //            double productPrice = Double.parseDouble(div.findElement(By.className("product_price")).getText());
-            String totalCost = div.findElement(By.xpath(miniCartRowXpath + "[" + index + "]" + "//div[@class='total-price__new-price']")).getText().replace("$", "");
+            String totalCost = div.findElement(By.xpath(miniCartRowXpath + "[" + index + "]" + "//div[@class='total-price__new-price']"))
+                    .getText()
+                    .replace("$", "")
+                    .replace(",", "");
 
             ProductMiniCart product = new ProductMiniCart(productName, productQuantity, Integer.valueOf(productCount), Double.valueOf(totalCost));
             products.add(product);
@@ -99,5 +113,21 @@ public class MiniCartSteps extends BaseSteps{
 //        driver.quit();
 
         return products;
+    }
+
+    @And("^user clicks checkout button$")
+    public void clickCheckoutButton() {
+        MiniCartProductPage miniCartProductPage = (MiniCartProductPage) getFromContext(PAGE);
+        miniCartProductPage.clickMiniCartCheckoutButton();
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        saveToContext(PAGE, checkoutPage);
+    }
+
+    @When("^customer clicks on View Cart button$")
+    public void clickViewCartButton() {
+        MiniCartProductPage miniCartProductPage = (MiniCartProductPage) getFromContext(PAGE);
+        miniCartProductPage.clickViewCartButton();
+        CartPage cartPage = new CartPage(driver);
+        saveToContext(PAGE, cartPage);
     }
 }

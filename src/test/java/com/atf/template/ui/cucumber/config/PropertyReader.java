@@ -18,7 +18,7 @@ public class PropertyReader {
         }
     }
 
-    public static String getProperty(com.atf.template.ui.cucumber.config.PropertiesKeys propertiesKeys) {
+    public static String getProperty(PropertiesKeys propertiesKeys) {
         try {
             return properties.getProperty(propertiesKeys.getPropertyKey());
         } catch (NullPointerException exception) {

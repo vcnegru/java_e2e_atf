@@ -1,13 +1,19 @@
 package com.atf.template.ui.cucumber.pageObjects;
 
+import com.atf.template.ui.cucumber.config.WebDriverConfig;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+import java.time.Duration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,11 +32,14 @@ public class ProductPage extends BasePage{
     @FindBy(xpath = "//div[@class='product-detail__radio-button-wrap']//div[3]")
     protected WebElement threeTestsRadioButton;
 
-    @FindBy(xpath = "//button[@class='counter__btn counter__btn--remove']")
+//    @FindBy(xpath = "//button[@class='counter__btn counter__btn--remove']")
+    @FindBy(css = "#__next > div > div.wrapper__main > section.product-detail-section.section > div.container-fluid > div > div > div.product-detail__col--right > div.product-detail__details > div.product-detail__info > div.product-detail__controls > div > button.counter__btn.counter__btn--remove")
     protected WebElement productCounterRemoveButton;
-    @FindBy(xpath = "//button[@class='counter__btn counter__btn--add']")
+//    @FindBy(xpath = "//button[@class='counter__btn counter__btn--add']")
+    @FindBy(css = "#__next > div > div.wrapper__main > section.product-detail-section.section > div.container-fluid > div > div > div.product-detail__col--right > div.product-detail__details > div.product-detail__info > div.product-detail__controls > div > button.counter__btn.counter__btn--add")
     protected WebElement productCounterAddButton;
-    @FindBy(xpath = "//div/input[@class='counter__input input']")
+//    @FindBy(xpath = "//div/input[@class='counter__input input']")
+    @FindBy(css = "div[class='counter product-detail__counter'] input[name='quantity']")
     protected WebElement productCounter;
 
     @FindBy(xpath = "//s[@class='product-detail__old-price']")
@@ -49,6 +58,7 @@ public class ProductPage extends BasePage{
         switch (testsCount) {
             case "1 test":
 //                checkIfPresent(oneTestRadioButton);
+
                 click(oneTestRadioButton);
                 break;
             case "2 tests":
@@ -112,13 +122,33 @@ public class ProductPage extends BasePage{
     }
 
     public int clickAddProduct () {
+        log.info("clickAddProduct method");
+        checkIfPresent(productCounterAddButton);
         productCounterAddButton.click();
+        log.info("Product count increased method");
         return getProductCount();
     }
 
     public int clickRemoveProduct () {
-        click(productCounterRemoveButton);
-//        productCounterRemoveButton.click();
+        log.info("clickRemoveProduct method");
+//        log.info("IsEnabled: {}", productCounterRemoveButton.isEnabled());
+//        log.info("isDisplayed: {}", productCounterRemoveButton.isDisplayed());
+//        log.info("isSelected: {}", productCounterRemoveButton.isSelected());
+//        log.info("getLocation: {}", productCounterRemoveButton.getLocation());
+//        log.info("getLocation: {}", productCounterRemoveButton.getCssValue("class"));
+//
+//        Actions actions = new Actions(WebDriverConfig.getDriver());
+////        actions.click(productCounterRemoveButton).build().perform();
+////        WebElement myElement = new WebDriverWait(driver, Duration.ofMillis(20)).until(ExpectedConditions.visibilityOf(productCounterRemoveButton));
+////        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", myElement);
+//        actions.moveToElement(productCounterRemoveButton).build().perform();
+//
+//        actions.click(productCounterRemoveButton).build().perform();
+
+//        click(productCounterRemoveButton);
+        checkIfPresent(productCounterRemoveButton);
+        productCounterRemoveButton.click();
+        log.info("Product count decreased method");
         return getProductCount();
     }
 }

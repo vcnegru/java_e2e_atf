@@ -23,6 +23,12 @@ public class BasePage {
     //Whole Genome Test
     //Breed + Health Dog DNA Test
 
+    //    -----------------------------------------------------
+    @FindBy(css = "#login-button")
+    private WebElement loginButton;
+    @FindBy(css = "h3")
+    private WebElement loginMessageError;
+
     //  Mini Cart----------------------------------------------
     @FindBy(xpath = "//div[@class='mini-cart__title']")
     private WebElement miniCartTitle;
@@ -31,7 +37,7 @@ public class BasePage {
     @FindBy(xpath = "//button[contains(text(),'Continue Shopping')]")
     private WebElement miniCartContinueShoppingButton;
     @FindBy(xpath = "//button[@aria-label='Show minicart']")
-    private WebElement topMenuMiniCart;
+    protected WebElement topMenuMiniCart;
     @FindBy(xpath = "//div[@class='header-controls__cart-count cart-count']")
     private WebElement cartCount;
     public void clickCloseMiniCart() {
@@ -49,10 +55,17 @@ public class BasePage {
         return  text;
     }
 
-    public String getText(WebElement webElement) {
+//    public String getText(WebElement webElement) {
 //        checkIfPresent(webElement);
-        return  webElement.getText();
+//        return  webElement.getText();
+//    }
+
+    public void clickTopMenuMiniCartButton() {
+        click(topMenuMiniCart);
     }
 
+    public String getLoginErrorMessage() {
+        return loginMessageError.getText();
+    }
 
 }

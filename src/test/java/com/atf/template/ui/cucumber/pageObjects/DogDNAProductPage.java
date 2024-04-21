@@ -1,10 +1,12 @@
 package com.atf.template.ui.cucumber.pageObjects;
 
+import com.atf.template.ui.cucumber.config.WebDriverConfig;
 import com.atf.template.ui.cucumber.helper.ProductMiniCart;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -35,7 +37,8 @@ public class DogDNAProductPage extends ProductPage {
     @FindBy(xpath = "//h1[contains(text(),'Breed + Health Dog DNA Test')]")
     private WebElement dogBreedProductDetailTitle;
 
-    @FindBy(css = ".product-detail__btn.btn.btn--primary")
+//    @FindBy(css = ".product-detail__btn.btn.btn--primary")
+    @FindBy(xpath = "//div/a[@class='product-detail__btn btn btn--primary ']")
     // .product-detail__btn.btn.btn--primary
     // //a[normalize-space()='Add to cart - $109.00|218.00|327.00']
     private WebElement addToCartButton;
@@ -99,6 +102,7 @@ public class DogDNAProductPage extends ProductPage {
     public void addProductToCart(String productName, int testCount) {
         double productPrice = Double.parseDouble(newPriceLabel.getText().replace("$",""));
         int productCount = getProductCount();
+        moveToWithJS(addToCartButton);
         click(addToCartButton);
 
         ProductMiniCart productMiniCart =
@@ -106,6 +110,8 @@ public class DogDNAProductPage extends ProductPage {
         addProductToMiniCart(productMiniCart);
         log.info("Product Added to in MEM MiniCart: {}", productMiniCart.toString());
     }
+
+
     public static Boolean checkIfPresent(WebElement element) {
         try {
             waitFluent().until(ExpectedConditions.visibilityOf(element));

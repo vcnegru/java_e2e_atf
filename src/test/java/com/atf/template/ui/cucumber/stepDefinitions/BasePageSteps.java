@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 //import static com.atf.template.ui.cucumber.config.WebDriverConfiguration.getDriver;
 import static com.atf.template.ui.cucumber.config.WebDriverConfig.getDriver;
 
-public class BaseSteps {
+public class BasePageSteps {
     protected WebDriver driver = getDriver();
 
-    public BaseSteps() {
+    public BasePageSteps() {
         this.driver = WebDriverConfig.getDriver();
     }
 }

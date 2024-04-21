@@ -1,4 +1,4 @@
 package com.atf.template.ui.cucumber.helper;
 
-public class ProductCart {
+public class OrderDetails {
 }
